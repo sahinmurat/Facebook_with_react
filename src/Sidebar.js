@@ -8,14 +8,15 @@ import ChatIcon from "@material-ui/icons/Chat";
 import StorefrontIcon from "@material-ui/icons/Storefront";
 import VideoLibraryIcon from "@material-ui/icons/VideoLibrary";
 import { ExpandMoreOutlined } from "@material-ui/icons";
-
-
-
+import { useStateValue } from "./StateProvider";
 
 function Sidebar(props) {
+    const [{ user }, dispatch] = useStateValue();
     return (
         <div className="sidebar">
-            <SidebarRow src="http://img.gazetevatan.com/vatanmediafile/Haber598x362/2020/03/06/sahin-kusunun-ozellikleri-nelerdir--4430279.Jpeg" />
+            <SidebarRow
+             src={user.photoUrl} 
+             title={user.displayName} />
             <SidebarRow
                 Icon={LocalHospitalIcon}
                 title="COVID-19 Information Center"
